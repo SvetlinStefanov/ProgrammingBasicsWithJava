@@ -1,0 +1,24 @@
+package FirtsStepsInCoding.Lab;
+
+import java.util.Scanner;
+
+public class P07ProjectsCreation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //Прочитаме входни данни
+        String name = scanner.nextLine();
+        int projects = Integer.parseInt(scanner.nextLine());
+
+        //Изчисления
+          //изготването на един проект отнема 3 часа
+        int neededTime = projects * 3;
+
+        //Печатане на резултата
+        //"The architect {името на архитекта} will need
+        // {необходими часове} hours to complete {брой на проектите} project/s."
+        System.out.printf("The architect %s will need " +
+                "%d hours to complete %d project/s." , name, neededTime, projects);
+
+    }
+}
