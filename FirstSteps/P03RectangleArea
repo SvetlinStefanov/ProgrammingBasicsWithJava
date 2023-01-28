@@ -1,0 +1,20 @@
+package FirtsStepsInCoding.Lab;
+
+import java.util.Scanner;
+
+public class P03RectangleArea {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // Прочитане на входни данни от конзолата
+          // страните на правоъгълника a и b
+        int a = Integer.parseInt(scanner.nextLine());
+        int b = Integer.parseInt(scanner.nextLine());
+
+        // Обработка на данните ( аритметични операции )
+        int area = a * b;
+
+        // Принтиране на резултата
+        System.out.println(area);
+
+    }
+}
