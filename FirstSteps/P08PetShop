@@ -1,0 +1,25 @@
+package FirtsStepsInCoding.Lab;
+
+import java.util.Scanner;
+
+public class P08PetShop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //Прочитане на входни данни
+        //1. Броят на опаковките храна за кучета – цяло число в интервала [0… 100]
+        //2. Броят на опаковките храна за котки – цяло число в интервала [0… 100]
+        int dogPacks = Integer.parseInt(scanner.nextLine());
+        int catPacks = Integer.parseInt(scanner.nextLine());
+
+        //Изчисления
+        double sumDogPacks = dogPacks * 2.50;
+        double sumCatPacks = catPacks * 4.00;
+        double totalSum = sumDogPacks + sumCatPacks;
+
+        //Печатане на разултата
+        // "{крайната сума} lv."
+        System.out.printf("%f lv.", totalSum);
+    }
+
+}
