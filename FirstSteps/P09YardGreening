@@ -1,0 +1,24 @@
+package FirtsStepsInCoding.Lab;
+
+import java.util.Scanner;
+
+public class P09YardGreening {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //Прочитане на входни данни
+        double area = Double.parseDouble(scanner.nextLine());
+        //Изчисления
+        //Цената на един кв. м. е 7.61 лв със ДДС
+        double totalPriceNoDiscount = area * 7.61;
+        //18% отстъпка от крайната цена.
+        double discount = totalPriceNoDiscount * 0.18;
+        double totalPrice = totalPriceNoDiscount - discount;
+        //Принтиране на резултата
+        System.out.printf("The final price is: %f lv.", totalPrice);
+        System.out.printf("The discount is: %f  lv.", discount);
+
+
+
+    }
+}
