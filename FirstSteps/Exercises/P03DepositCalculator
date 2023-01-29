@@ -1,0 +1,25 @@
+package FirtsStepsInCoding.Exercises;
+
+import java.util.Scanner;
+
+public class P03DepositCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //прочитане на данните на входа
+        // Депозирана сума – реално число
+        double depositSum = Double.parseDouble(scanner.nextLine());
+        // Срок на депозита (в месеци) – цяло число
+        int termOfDeposit = Integer.parseInt(scanner.nextLine());
+        // Годишен лихвен процент – реално число
+        double annualInterestRate = Double.parseDouble(scanner.nextLine());
+
+        // изчисления
+        double accruedInterest = depositSum * annualInterestRate/100.0;
+        double interestOneMonth = accruedInterest / 12.0;
+        double totalSum = depositSum + (termOfDeposit * interestOneMonth);
+
+        // Да се отпечата на конзолата сумата в края на срока.
+        System.out.println(totalSum);
+    }
+}
