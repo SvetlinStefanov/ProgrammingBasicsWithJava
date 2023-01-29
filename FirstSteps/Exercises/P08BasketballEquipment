@@ -1,0 +1,28 @@
+package FirtsStepsInCoding.Exercises;
+
+import java.util.Scanner;
+
+public class P08BasketballEquipment {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner (System.in);
+
+        // Прочитане на входни данни
+        // Годишната такса за тренировки по баскетбол – цяло число
+        int annualFee = Integer.parseInt(scanner.nextLine());
+
+        // Изчисления
+        // Баскетболни кецове – цената им е 40% по-малка от таксата за една година
+        // Баскетболен екип – цената му е 20% по-евтина от тази на кецовете
+        // Баскетболна топка – цената ѝ е 1 / 4 от цената на баскетболния екип
+        // Баскетболни аксесоари – цената им е 1 / 5 от цената на баскетболната топка
+        double sneakers = annualFee - (0.4 * annualFee);
+        double outFit = sneakers - (0.2 * sneakers);
+        double ball = outFit * 1 / 4;
+        double accessories = ball * 1 / 5;
+        //колко ще са разходите на Джеси, ако започне да спортува баскетбол
+        double totalSum = annualFee + sneakers + outFit + ball + accessories;
+
+        // Принтиране на резултата
+        System.out.println(totalSum);
+    }
+}
