@@ -1,0 +1,40 @@
+package FirtsStepsInCoding.Exercises;
+
+import java.util.Scanner;
+
+public class P06Repainting {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner (System.in);
+
+        // найлон, боя, разредител, торбички, майстори
+        // прочитане на входни данни
+        int quantityNylon = Integer.parseInt(scanner.nextLine());
+        int quantityPaint = Integer.parseInt(scanner.nextLine());
+        int quantityDiluent = Integer.parseInt(scanner.nextLine());
+        int hours =  Integer.parseInt(scanner.nextLine());
+
+        // сума за найлон = (количество + 2) * цена (1.50)
+        double sumNylon = (quantityNylon + 2) * 1.50;
+
+        // сума за боя = (количество + 10%) * цена (14.50)
+        double sumPaint = (quantityPaint + 0.1 * quantityPaint) * 14.50;
+
+        // сума за разредител = количество * цена (5.00)
+        double sumDiluent = quantityDiluent * 5.00;
+
+        // сума за торбички = 0.40
+        double sumBags = 0.40;
+
+        // сума за материали = сума за найлон + сума за боя + сума за разредител + сума за торбички
+        double sumMaterial = sumNylon + sumPaint + sumDiluent + sumBags;
+
+        // сума за майстори = часовете работа * цена за 1 час (30% от сумата за всички разходи за материали)
+        double sumWorkers = hours * (0.3 * sumMaterial);
+
+        // обща сума = сума за найлон + сума за боя + сума за разредител + сума за торбички + сума за майстори
+        double totalSum = sumMaterial + sumWorkers;
+
+        //Принтиране на резултата
+        System.out.println(totalSum);
+    }
+}
