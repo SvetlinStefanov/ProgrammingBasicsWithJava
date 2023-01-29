@@ -1,0 +1,33 @@
+package FirtsStepsInCoding.Exercises;
+
+import java.util.Scanner;
+
+public class P05SuppliesForSchool {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner (System.in);
+
+        // прочитане на входни данни - химикали, маркери, препарат, процент намаление
+        int countPens = Integer.parseInt(scanner.nextLine());
+        int countMarkers = Integer.parseInt(scanner.nextLine());
+        int liters = Integer.parseInt(scanner.nextLine());
+        int percent = Integer.parseInt(scanner.nextLine());
+
+        // сума химикали = бр. химикали * цена за 1 пакет химикали (5.80)
+        double sumPens = countPens * 5.80;
+
+        // сума за маркери = бр. маркери * цена за 1 пакет маркери (7.20)
+        double sumMarkers = countMarkers * 7.20;
+
+        // сума за препарат = литри * цена за 1 литър препарат (1.20)
+        double sumLiters = liters * 1.20;
+
+        // обща сума = сума химикали + сума маркери + сума препарати
+        double totalSum = sumPens + sumMarkers + sumLiters;
+
+        // сума след отстъпка = крайна сума - отстъпка
+        double finalSum = totalSum - (percent / 100.0) * totalSum;
+
+        // отпечатваме резултата
+        System.out.println(finalSum);
+    }
+}
