@@ -1,0 +1,38 @@
+package FirtsStepsInCoding.Exercises;
+
+import java.util.Scanner;
+
+public class P07FoodDelivery {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner (System.in);
+
+        // Прочитане на входа
+        int menuChicken = Integer.parseInt(scanner.nextLine());
+        int menuFish = Integer.parseInt(scanner.nextLine());
+        int menuVegetarian = Integer.parseInt(scanner.nextLine());
+
+        // цена на пилешко меню = 10.35
+        double priceMenuChicken = 10.35;
+
+        // цена на меню с риба = 12.40
+        double priceMenuFish = 12.40;
+
+        // цена на вегетарианско меню = 8.15
+        double priceVegetarianMenu = 8.15;
+
+        // обща сума на менютата
+        double sumMenus = (menuChicken * priceMenuChicken) + (menuFish * priceMenuFish) + (menuVegetarian * priceVegetarianMenu);
+
+        // цена на десерта
+        double priceDessert = 0.2 * sumMenus;
+
+        // цена за доставка
+        double priceDelivery = 2.50;
+
+        // обща сума = общата сума на менютата + цена на десерта + цена за доставка
+        double totalSum = sumMenus + priceDessert + priceDelivery;
+
+        // принтиране на резултата
+        System.out.println(totalSum);
+    }
+}
