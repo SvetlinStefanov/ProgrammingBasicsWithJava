@@ -1,0 +1,29 @@
+package Exercises_IfElseStatement;
+
+import java.util.Scanner;
+
+public class Ex_03_TimePlus15Minutes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //прочитане на входни данни - час и минути
+        int hours = Integer.parseInt(scanner.nextLine());
+        int minutes = Integer.parseInt(scanner.nextLine());
+
+        int minPlus15 = minutes + 15;
+
+        //изчисления
+        if (minPlus15 >= 60) {
+            hours = hours + 1;
+            minPlus15 = minPlus15 - 60;
+        }
+        if (hours > 23) {
+            hours = 0;
+        }
+        if (minPlus15 < 9){
+            System.out.printf("%d:0%d", hours, minPlus15);
+        } else {
+            System.out.printf("%d:%d", hours, minPlus15);
+        }
+    }
+}
