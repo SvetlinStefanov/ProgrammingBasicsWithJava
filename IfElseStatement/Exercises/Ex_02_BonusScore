@@ -1,0 +1,33 @@
+package Exercises_IfElseStatement;
+
+import java.util.Scanner;
+
+public class Ex_02_BonusScore {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // прочитаме цяло число от конзолата
+        int num = Integer.parseInt(scanner.nextLine());
+
+        // създавам си променлива, която да пази бонуса
+        double bonus = 0.0;
+
+        // проверка в кой интервал се намира нашето число и изчисляване на бонуса
+        if (num <= 100) {
+             bonus = 5;
+        } else if (num > 1000) {
+             bonus = num * 0.1;
+        } else {
+             bonus = num * 0.2;
+        }
+        // изчисляване на допълнителните бонус точки
+        if (num % 2 == 0){ // проверка за четно число
+            bonus = bonus + 1;
+        } else if (num % 10 == 5){ // числото след == е нашия остатък, или това на което искаме числото да завърши
+            bonus = bonus + 2;
+        }
+        // принтиране на бонус точките и бонус точките + числото
+        System.out.println(bonus);
+        System.out.println(num + bonus);
+    }
+}
