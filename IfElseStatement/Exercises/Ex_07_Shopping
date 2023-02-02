@@ -1,0 +1,31 @@
+package Exercises_IfElseStatement;
+
+import java.util.Scanner;
+
+public class Ex_07_Shopping {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //прочитане на входни данни
+        double budget = Double.parseDouble(scanner.nextLine());
+        int countsVideo = Integer.parseInt(scanner.nextLine());
+        int countsProcessors = Integer.parseInt(scanner.nextLine());
+        int countsRam = Integer.parseInt(scanner.nextLine());
+        //изчисления
+        double priceVideo = countsVideo * 250; //Видеокарта – 250 лв./бр.
+        double priceProcessors = priceVideo * 0.35; //35% от цената на закупените видеокарти/бр.
+        double priceRam = priceVideo * 0.10; // 10% от цената на закупените видеокарти/бр.
+
+        double totalSum = priceVideo + priceProcessors * countsProcessors + priceRam * countsRam;
+
+        if (countsVideo > countsProcessors) {
+            totalSum = totalSum * 0.85;
+        }
+        if (budget >= totalSum) {
+            System.out.printf("You have %.2f leva left!", budget - totalSum);
+        } else {
+
+            System.out.printf("Not enough money! You need %.2f leva more!", totalSum - budget);
+        }
+    }
+}
