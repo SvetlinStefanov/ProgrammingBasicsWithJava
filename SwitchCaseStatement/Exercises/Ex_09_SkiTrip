@@ -1,0 +1,53 @@
+package Exercises_SwitchCaseStatement;
+
+import java.util.Scanner;
+
+public class Ex_09_SkiTrip {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int days = Integer.parseInt(scanner.nextLine());
+        String typePremises = scanner.nextLine();
+        String positiveNegative = scanner.nextLine();
+        double nightPrice = 0.0;
+        double discount = 0.0;
+        double nights = days - 1;
+        double totalSum = 0.0;
+
+        switch (typePremises) {
+            case "room for one person":
+                nightPrice = 18.00;
+                totalSum = nights * nightPrice;
+                break;
+            case "apartment":
+                nightPrice = 25.00;
+                totalSum = nights * nightPrice;
+                if (nights <= 10) {
+                    totalSum = totalSum * 0.70;
+                } else if (nights > 10 && nights <= 15) {
+                    totalSum = totalSum * 0.65;
+                } else {
+                    totalSum = totalSum * 0.50;
+                }
+                break;
+            case "president apartment":
+                nightPrice = 35.00;
+                totalSum = nights * nightPrice;
+                if (nights <= 10) {
+                    totalSum = totalSum * 0.90;
+                } else if (nights > 10 && nights <= 15) {
+                    totalSum = totalSum * 0.85;
+                } else {
+                    totalSum = totalSum * 0.80;
+                }
+                break;
+        }
+        if (positiveNegative.equals("positive")) {
+            totalSum = totalSum * 1.25;
+            System.out.printf("%.2f", totalSum);
+        } else if (positiveNegative.equals("negative")) {
+            totalSum = totalSum * 0.90;
+            System.out.printf("%.2f", totalSum);
+        }
+    }
+}
