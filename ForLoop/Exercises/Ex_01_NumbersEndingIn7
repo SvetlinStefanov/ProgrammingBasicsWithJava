@@ -1,0 +1,18 @@
+package Exercises_ForLoop;
+
+public class Ex_01_NumbersEndingIn7 {
+    public static void main(String[] args) {
+
+        // for цикъл -> знаем колко точно пъти искаме да повторим
+        // 1. повтаряме: вземаме числото -> проверяваме дали завършва на 7 -> печатаме
+        // 2. начало: 7
+        // 3. край: 997
+        // 4. промяна: +1
+
+        for (int number = 7; number <= 997; number++) {
+            if ( number % 10 == 7) {
+                System.out.println(number);
+            }
+        }
+    }
+}
