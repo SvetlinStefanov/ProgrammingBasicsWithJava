@@ -1,0 +1,45 @@
+package Exercises_ForLoop;
+
+import java.util.Scanner;
+
+public class Ex_04_CleverLily {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int age = Integer.parseInt(scanner.nextLine());
+        double priceWasher = Double.parseDouble(scanner.nextLine());
+        double pricePerToy = Double.parseDouble(scanner.nextLine());
+
+        // повтаряме за всеки рожден ден -> проверяваме какво е получила
+        // начало: първия рожден ден (1)
+        // край: последния рожден ден (age)
+        // промяна +1
+
+        int countToys = 0; // бр. играчки
+        double savedMoney = 0; // спестени пари
+        double giftSum = 0; // подарена сума
+
+        for (int birthday = 1; birthday <= age; birthday++) {
+            //четен рд -> пари
+            if (birthday % 2 == 0) {
+                giftSum += 10;
+                savedMoney += giftSum - 1;
+            } else {
+                //нечетен рд -> играчка
+                countToys++;
+            }
+        }
+
+        // общата събрана сума = (бр. играчки * pricePerToy) + спестени пари
+        double totalSum = (countToys * pricePerToy) + savedMoney;
+
+        // проверка дали събраните пари стигат за пералня
+        if (totalSum >= priceWasher) {
+            double leftMoney = totalSum - priceWasher; // останали пари след покупка
+            System.out.printf("Yes! %.2f", leftMoney);
+        } else {
+            double neededMoney = priceWasher - totalSum; // недостигащи пари
+            System.out.printf("No! %.2f", neededMoney);
+        }
+    }
+}
