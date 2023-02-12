@@ -1,0 +1,54 @@
+package Exercises_ForLoop;
+
+import java.util.Scanner;
+
+public class Ex_03_Histogram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // група -> брой число
+        // повтаряме за всяко число
+        // 1. стойността на числото
+        // 2. проверяваме в коя група е
+        // 3. увеличаваме броя на числото с 1
+        // начало: 1
+        // край: последното число = countNumbers
+        // промяна: +1
+
+        int countNumbers = Integer.parseInt(scanner.nextLine()); // общ брой на числата
+
+        int count1 = 0; // броят на числата в първата група
+        int count2 = 0; // броят на числата във втората група
+        int count3 = 0; // броят на числата в третата група
+        int count4 = 0; // броят на числата в четвъртата група
+        int count5 = 0; // броят на числата в петата група
+
+        for (int number = 1; number <= countNumbers; number++) {
+            int value = Integer.parseInt(scanner.nextLine()); // стойността на числото
+            if (value < 200) {
+                count1++;
+            } else if (value >= 200 && value <= 399) {
+                count2++;
+            } else if (value >= 400 && value <= 599) {
+                count3++;
+            } else if (value >= 600 && value <= 799) {
+                count4++;
+            } else if (value >= 800) {
+                count5++;
+            }
+
+        }
+        // процент на числа във всяка група -> бр. числа в съответната група / общ брой числа * 100
+        double p1 = count1 * 1.0 / countNumbers * 100;
+        double p2 = count2 * 1.0 / countNumbers * 100;
+        double p3 = count3 * 1.0 / countNumbers * 100;
+        double p4 = count4 * 1.0 / countNumbers * 100;
+        double p5 = count5 * 1.0 / countNumbers * 100;
+
+        System.out.printf("%.2f%%%n", p1);
+        System.out.printf("%.2f%%%n", p2);
+        System.out.printf("%.2f%%%n", p3);
+        System.out.printf("%.2f%%%n", p4);
+        System.out.printf("%.2f%%%n", p5);
+    }
+}
