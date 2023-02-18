@@ -1,0 +1,29 @@
+package Exercises_WhileLoop;
+
+import java.util.Scanner;
+
+public class Ex_04_Walking {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int goal = 10000; //цел 10000 крачки
+        int total = 0; //моите крачки на ден
+
+        while (total < goal) { //докато моите стъпки са по-малки от целта ми
+            String input = scanner.nextLine(); //команда - стъпки в int ИЛИ командата Going home
+            if (input.equals("Going home")) { // ако командата е равна на Going home
+                int wayHome = Integer.parseInt(scanner.nextLine()); //стъпки до вкъщи
+                total = total + wayHome; //прибавям си стъпките към общите
+                break;
+            }
+            int current = Integer.parseInt(input); //стъпки без команда Going home, преобразува моя input от стриг в число
+            total = total + current;
+        }
+        if (total >= goal) {
+            System.out.println("Goal reached! Good job!");
+            System.out.printf("%d steps over the goal!", total - goal);
+        } else {
+            System.out.printf("%d more steps to reach goal.", goal - total);
+        }
+    }
+}
