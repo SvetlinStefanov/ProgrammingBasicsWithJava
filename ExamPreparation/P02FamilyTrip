@@ -1,0 +1,29 @@
+package ExamPreparation;
+
+import java.util.Scanner;
+
+public class P02FamilyTrip {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double budget = Double.parseDouble(scanner.nextLine());
+        int countNights = Integer.parseInt(scanner.nextLine());
+        double priceNight = Double.parseDouble(scanner.nextLine());
+        int percentExpenses = Integer.parseInt(scanner.nextLine());
+
+        if (countNights > 7) {
+            priceNight = priceNight * 0.95;
+        }
+
+        double allNightsSum = countNights * priceNight;
+        double otherExpenses = budget * (percentExpenses / 100.0);
+        double totalSum = allNightsSum + otherExpenses;
+
+        double diff = Math.abs(budget - totalSum);
+        if (budget >= totalSum) {
+            System.out.printf("Ivanovi will be left with %.2f leva after vacation.", diff);
+        } else {
+            System.out.printf("%.2f leva needed.", diff);
+        }
+    }
+}
