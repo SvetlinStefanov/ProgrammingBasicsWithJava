@@ -1,0 +1,26 @@
+package PreliminaryExam;
+
+import java.util.Scanner;
+
+public class P01CatDiet {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int percentFats = Integer.parseInt(scanner.nextLine());
+        int percentProteins = Integer.parseInt(scanner.nextLine());
+        int percentCarbs = Integer.parseInt(scanner.nextLine());
+        int totalCalories = Integer.parseInt(scanner.nextLine());
+        int percentWater = Integer.parseInt(scanner.nextLine());
+
+        double gramsFats = ((percentFats / 100.0) * totalCalories) / 9.0;
+        double gramsProteins = ((percentProteins / 100.0) * totalCalories) / 4.0;
+        double gramsCarbs = ((percentCarbs / 100.0) * totalCalories) / 4.0;
+
+        double foodWeight = gramsFats + gramsProteins + gramsCarbs;
+        double caloriesPerGram = totalCalories / foodWeight;
+        double caloriesWithWater = caloriesPerGram * (percentWater / 100.0);
+        double caloriesWithoutWater = caloriesPerGram - caloriesWithWater;
+
+        System.out.printf("%.4f",caloriesWithoutWater);
+    }
+}
