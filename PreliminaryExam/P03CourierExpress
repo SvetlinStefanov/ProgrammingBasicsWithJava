@@ -1,0 +1,62 @@
+package PreliminaryExam;
+
+import java.util.Scanner;
+
+public class P03CourierExpress {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double packageWeight = Double.parseDouble(scanner.nextLine());
+        String service = scanner.nextLine();
+        int distanceInKm = Integer.parseInt(scanner.nextLine());
+
+        double pricePerKm = 0;
+        double markUpKg = 0;
+        double markUpKm = 0;
+        double totalSum = pricePerKm * distanceInKm;
+        switch (service) {
+            case "standard":
+                if (packageWeight < 1.0) {
+                    pricePerKm = 0.03;
+                    totalSum = pricePerKm * distanceInKm;
+                } else if (packageWeight >= 1 && packageWeight < 10) {
+                    pricePerKm = 0.05;
+                    totalSum = pricePerKm * distanceInKm;
+                } else if (packageWeight >= 10 && packageWeight < 40) {
+                    pricePerKm = 0.10;
+                    totalSum = pricePerKm * distanceInKm;
+                } else if (packageWeight >= 40 && packageWeight < 90) {
+                    pricePerKm = 0.15;
+                    totalSum = pricePerKm * distanceInKm;
+                } else if ( packageWeight >= 90 && packageWeight <= 150) {
+                    pricePerKm = 0.20;
+                    totalSum = pricePerKm * distanceInKm;
+                }
+                break;
+            case "express":
+                if (packageWeight < 1.0) {
+                   markUpKg = 0.8 * 0.03;
+                   markUpKm = markUpKg * packageWeight;
+                   totalSum = (distanceInKm * markUpKm) + (distanceInKm * 0.03);
+                } else if (packageWeight >= 1 && packageWeight < 10) {
+                    markUpKg = 0.4 * 0.05;
+                    markUpKm = markUpKg * packageWeight;
+                    totalSum = (distanceInKm * markUpKm) + (distanceInKm * 0.05);
+                } else if (packageWeight >= 10 && packageWeight < 40) {
+                    markUpKg = 0.05 * 0.10;
+                    markUpKm = markUpKg * packageWeight;
+                    totalSum = (distanceInKm * markUpKm) + (distanceInKm * 0.10);
+                } else if (packageWeight >= 40 && packageWeight < 90) {
+                    markUpKg = 0.02 * 0.15;
+                    markUpKm = markUpKg * packageWeight;
+                    totalSum = (distanceInKm * markUpKm) + (distanceInKm * 0.15);
+                } else if ( packageWeight >= 90 && packageWeight <= 150) {
+                    markUpKg = 0.01 * 0.20;
+                    markUpKm = markUpKg * packageWeight;
+                    totalSum = (distanceInKm * markUpKm) + (distanceInKm * 0.20);
+                }
+                break;
+        }
+        System.out.printf("The delivery of your shipment with weight of %.3f kg. would cost %.2f lv.", packageWeight, totalSum);
+    }
+}
