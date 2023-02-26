@@ -1,0 +1,33 @@
+package PreliminaryExam;
+
+import java.util.Scanner;
+
+public class P05BestPlayer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String bestPlayer = "";
+        int maxGoals = 0;
+
+        while (scanner.hasNextLine()) {
+            String player = scanner.nextLine();
+            if (player.equals("END")) {
+                break;
+            }
+            String someInput = scanner.nextLine();
+            if (someInput.length() > 0) {
+                int goals = Integer.parseInt(someInput);
+                if (goals > maxGoals) {
+                    bestPlayer = player;
+                    maxGoals = goals;
+                }
+            }
+        }
+        System.out.printf("%s is the best player!%n", bestPlayer);
+        if (maxGoals >= 3) {
+            System.out.printf("He has scored %d goals and made a hat-trick !!!", maxGoals);
+        } else {
+            System.out.printf("He has scored %d goals.", maxGoals);
+        }
+    }
+}
