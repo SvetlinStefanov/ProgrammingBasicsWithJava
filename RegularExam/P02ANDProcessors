@@ -1,0 +1,24 @@
+package RegilarExam;
+
+import java.util.Scanner;
+
+public class P02ANDProcessors {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countProc = Integer.parseInt(scanner.nextLine()); //всички процесори планувани за изработка
+        int countWorkers = Integer.parseInt(scanner.nextLine()); //броят на служителите
+        int workingDays = Integer.parseInt(scanner.nextLine()); //работните дни
+
+        int totalWorkingHours = countWorkers * workingDays * 8; //всички часове работа
+        double countMadeProc = Math.floor(totalWorkingHours / 3); //изработените процесори
+        double diffCountProc = Math.abs(countProc - countMadeProc); // разликата в броя планувани и изработени процесори
+        double profitLosses = diffCountProc * 110.10;
+
+        if (countMadeProc < countProc) {
+            System.out.printf("Losses: -> %.2f BGN", profitLosses);
+        } else if (countMadeProc > countProc) {
+            System.out.printf("Profit: -> %.2f BGN", profitLosses);
+        }
+    }
+}
