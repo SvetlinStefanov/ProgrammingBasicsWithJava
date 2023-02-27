@@ -1,0 +1,48 @@
+package RegilarExam;
+
+import java.util.Scanner;
+
+public class P03PastryShop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String sweets = scanner.nextLine(); //вид сладкищ
+        int countSweets = Integer.parseInt(scanner.nextLine()); //брой сладкиши
+        int dayBeforeChristmas = Integer.parseInt(scanner.nextLine()); //ден от месеца преди Коледа
+
+        double totalSum = 0.0;
+
+        switch (sweets) {
+            case "Cake":
+                if (dayBeforeChristmas >= 1 && dayBeforeChristmas <= 15) {
+                    totalSum = countSweets * 24.00;
+                } else {
+                    totalSum = countSweets * 28.70;
+                }
+                break;
+            case "Souffle":
+                if (dayBeforeChristmas >= 1 && dayBeforeChristmas <= 15) {
+                    totalSum = countSweets * 6.66;
+                } else {
+                    totalSum = countSweets * 9.80;
+                }
+                break;
+            case "Baklava":
+                if (dayBeforeChristmas >= 1 && dayBeforeChristmas <= 15) {
+                    totalSum = countSweets * 12.60;
+                } else {
+                    totalSum = countSweets * 16.98;
+                }
+                break;
+        }
+        if (totalSum >= 100 && totalSum <= 200 && dayBeforeChristmas <= 22) {
+            totalSum = totalSum * 0.85;
+        } else if (totalSum > 200 && dayBeforeChristmas <= 22) {
+            totalSum = totalSum * 0.75;
+        }
+        if (dayBeforeChristmas <= 15) {
+            totalSum = totalSum * 0.9;
+        }
+        System.out.printf("%.2f", totalSum);
+    }
+}
