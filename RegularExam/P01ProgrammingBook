@@ -1,0 +1,22 @@
+package RegilarExam;
+
+import java.util.Scanner;
+
+public class P01ProgrammingBook {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double pricePerPage = Double.parseDouble(scanner.nextLine());
+        double pricePerCover = Double.parseDouble(scanner.nextLine());
+        int discountPrintPaper = Integer.parseInt(scanner.nextLine());
+        double designerSum = Double.parseDouble(scanner.nextLine());
+        int percentTeam = Integer.parseInt(scanner.nextLine());
+
+        double totalSum = pricePerPage * 899.0 + pricePerCover * 2.0;
+        double totalSumDiscount = totalSum - (discountPrintPaper / 100.0 * totalSum);
+        double totalSumDiscountDesigner = totalSumDiscount + designerSum;
+        double finalSum = totalSumDiscountDesigner - (percentTeam / 100.0 * totalSumDiscountDesigner);
+
+        System.out.printf("Avtonom should pay %.2f BGN.", finalSum);
+    }
+}
